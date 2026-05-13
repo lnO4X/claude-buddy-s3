@@ -1,0 +1,29 @@
+# PlatformIO build artifacts
+.pio/
+.pioenvs/
+.piolibdeps/
+.clang_complete
+.gcc-flags.json
+
+# IDE
+.vscode/
+.idea/
+.cproject
+.project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / temp
+*.log
+*.tmp
+*.bak
+*~
+
+# Local secrets / config (defensive)
+*.local
+*.secret
+*.env
+secrets.*
+credentials.*

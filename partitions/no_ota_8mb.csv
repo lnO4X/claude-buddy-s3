@@ -1,0 +1,15 @@
+# clawstick — 8 MB partition table for M5StickS3 (no OTA, big SPIFFS for character packs).
+#
+# Reference: https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-guides/partition-tables.html
+# Differs from upstream no_ota.csv (4 MB Plus 1 layout). E3 PSRAM character pack
+# extension uses both PSRAM (hot cache) and this larger SPIFFS (cold storage).
+#
+# Layout: 6 MB app + ~2 MB littlefs (mounted on a partition with subtype `spiffs`
+# per Arduino-ESP32 convention; LittleFS has no dedicated subtype id).
+#
+# Total accounted: 0x9000 + 0x6000 + 0x1000 + 0x600000 + 0x1F0000 = 0x800000 (8 MB)
+# Name,     Type, SubType, Offset,   Size,     Flags
+nvs,        data, nvs,     0x9000,   0x6000,
+phy_init,   data, phy,     0xf000,   0x1000,
+app0,       app,  ota_0,   0x10000,  0x600000,
+spiffs,     data, spiffs,  0x610000, 0x1F0000,
