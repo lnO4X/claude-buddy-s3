@@ -1,14 +1,10 @@
-// clawstick — BLE NUS bridge (BlueDroid impl).
+// BLE NUS bridge (BlueDroid implementation).
+// Byte-identical to upstream anthropics/claude-desktop-buddy src/ble_bridge.cpp
+// (MIT). See LICENSE for full copyright attribution.
 //
-// Copy of upstream anthropics/claude-desktop-buddy src/ble_bridge.cpp (MIT).
-// Upstream copyright preserved per CLAUDE.md L33 attribution invariant.
-// File is byte-identical to upstream — any divergence here would break
-// upstream cherry-pick parity AND Hardware Buddy compatibility (per G15
-// methodology: wire-protocol-touching code must be verbatim, not guessed).
-//
-// If upstream ble_bridge.cpp evolves, sync via:
-//   diff ~/code/_upstream-readonly/claude-desktop-buddy/src/ble_bridge.cpp \
-//        projects/clawstick/code/src/ble_bridge.cpp
+// Wire protocol contract: any divergence breaks Hardware Buddy compatibility
+// (per docs/UPSTREAM-DELTA.md §3 G15 methodology). Sync upstream changes by
+// diffing both src/ble_bridge.cpp files when upstream evolves.
 
 #include "ble_bridge.h"
 #include <BLEDevice.h>

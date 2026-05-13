@@ -1,0 +1,80 @@
+name: Bug Report
+description: Report a bug in claude-buddy-s3 firmware
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please fill in **all** sections — bugs without device/version info take much longer to diagnose.
+
+        ⚠️ For upstream `anthropics/claude-desktop-buddy` bugs (logic, wire protocol, UI design): please report to [anthropics/claude-desktop-buddy](https://github.com/anthropics/claude-desktop-buddy) instead. This repo is the M5StickS3 hardware port only.
+
+  - type: input
+    id: device-batch
+    attributes:
+      label: Device batch
+      description: Sticker on back of M5StickS3 (e.g. `K150`)
+      placeholder: K150
+    validations:
+      required: true
+
+  - type: input
+    id: firmware-version
+    attributes:
+      label: Firmware version
+      description: Tag or commit (`git describe --tags`)
+      placeholder: v0.7.18
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pmic
+    attributes:
+      label: PMIC chip
+      description: Visible on `DEVICE` info page (M5PM1 reg06 = 0x?? readable in serial diag)
+      options:
+        - AXP2101 (older batches)
+        - M5PM1 (newer batches)
+        - Unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproducer
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps to trigger the bug
+      placeholder: |
+        1. Plug USB
+        2. Wait for boot
+        3. Press ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-vs-observed
+    attributes:
+      label: Expected vs observed
+      placeholder: |
+        Expected: ...
+        Observed: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: serial-diag
+    attributes:
+      label: Serial diagnostic output (optional)
+      description: |
+        Paste `[diag]` lines from `pio device monitor -b 115200`. Redact `BT MAC` if you wish.
+      render: shell
+      placeholder: |
+        [diag] base=1 active=1 buddyMode=1 loaded=0 ...
+        [diag] ...
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      placeholder: Anything else helpful

@@ -105,7 +105,7 @@ See [`docs/UPSTREAM-DELTA.md`](docs/UPSTREAM-DELTA.md) for provenance breakdown:
 
 ## Contributing
 
-Bug reports + PRs welcome. Per [CLAUDE.md L34](https://github.com/anthropics/claude-desktop-buddy/blob/main/CLAUDE.md) (Anthropic's contribution guidelines for upstream), this port follows MIT-license downstream conventions.
+Bug reports + PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines + [SECURITY.md](SECURITY.md) for vulnerability reporting.
 
 **Issues**: Open a GitHub issue with:
 - Device batch identifier (look at sticker on back: K150 = M5StickS3)
